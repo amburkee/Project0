@@ -10,7 +10,10 @@ object Main extends App {
       println(line)
   }
   
+  var location = "beach"
+  Array inventory["","","",""]
   
+
 
   //......
 
