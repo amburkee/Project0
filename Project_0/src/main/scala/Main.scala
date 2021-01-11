@@ -2,12 +2,14 @@ import scala.io.Source
 
 object Main extends App {
   println("You wake up on an empty beach. Looking around there is no one to be found. It looks like no one has ever been here before.")
-  // print CSV File
-  val filename = "csvFile.csv"
+  println("What will you do?")
+  // print CSV File, has action words on it...
+  val filename = "src/main/scala/csvFile.csv"
 
   for(line <- Source.fromFile(filename).getLines){
       println(line)
   }
+  
   
 
   //......
