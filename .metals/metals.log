@@ -1,0 +1,132 @@
+2021.01.11 11:51:06 INFO  Started: Metals version 0.9.8 in workspace '/mnt/c/Users/Allie/Documents/GitHub/Project0' for client vscode.
+2021.01.11 11:51:07 INFO  time: initialize in 0.34s
+2021.01.11 11:51:07 WARN  Build server is not auto-connectable.
+2021.01.11 11:51:07 WARN  no build tool detected in workspace '/mnt/c/Users/Allie/Documents/GitHub/Project0'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+Jan 11, 2021 11:51:28 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.nio.file.FileAlreadyExistsException: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project0
+java.util.concurrent.CompletionException: java.nio.file.FileAlreadyExistsException: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project0
+	at java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:292)
+	at java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:308)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:661)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:646)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:488)
+	at java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:1990)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:29)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:26)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at scala.concurrent.BatchingExecutor$Batch.processBatch$1(BatchingExecutor.scala:67)
+	at scala.concurrent.BatchingExecutor$Batch.$anonfun$run$1(BatchingExecutor.scala:82)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:85)
+	at scala.concurrent.BatchingExecutor$Batch.run(BatchingExecutor.scala:59)
+	at scala.concurrent.Future$InternalCallbackExecutor$.unbatchedExecute(Future.scala:875)
+	at scala.concurrent.BatchingExecutor.execute(BatchingExecutor.scala:110)
+	at scala.concurrent.BatchingExecutor.execute$(BatchingExecutor.scala:107)
+	at scala.concurrent.Future$InternalCallbackExecutor$.execute(Future.scala:873)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:72)
+	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1(Promise.scala:288)
+	at scala.concurrent.impl.Promise$DefaultPromise.$anonfun$tryComplete$1$adapted(Promise.scala:288)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:288)
+	at scala.concurrent.Promise.complete(Promise.scala:53)
+	at scala.concurrent.Promise.complete$(Promise.scala:52)
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:187)
+	at scala.concurrent.Promise.failure(Promise.scala:104)
+	at scala.concurrent.Promise.failure$(Promise.scala:104)
+	at scala.concurrent.impl.Promise$DefaultPromise.failure(Promise.scala:187)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:45)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.nio.file.FileAlreadyExistsException: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project0
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:88)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+	at sun.nio.fs.UnixFileSystemProvider.createDirectory(UnixFileSystemProvider.java:384)
+	at java.nio.file.Files.createDirectory(Files.java:674)
+	at java.nio.file.Files.createAndCheckIsDirectory(Files.java:781)
+	at java.nio.file.Files.createDirectories(Files.java:727)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionAbsolutePathBuffers.createDirectories(MetalsEnrichments.scala:328)
+	at scala.meta.internal.builds.NewProjectProvider.createNewProject(NewProjectProvider.scala:104)
+	at scala.meta.internal.builds.NewProjectProvider.$anonfun$createNewProjectFromTemplate$5(NewProjectProvider.scala:90)
+	at scala.concurrent.Future.$anonfun$flatMap$1(Future.scala:307)
+	at scala.concurrent.impl.Promise.$anonfun$transformWith$1(Promise.scala:41)
+	... 4 more
+
+2021.01.11 11:52:02 INFO  
+2021.01.11 11:52:02 INFO  Template applied in /mnt/c/Users/Allie/Documents/GitHub/Project0/./hello-world
+2021.01.11 11:52:02 INFO  
+2021.01.11 11:52:02 INFO  giter8.Giter8 exit: 0
+2021.01.11 11:52:02 INFO  time: ran 'giter8.Giter8' in 2.06s
+2021.01.11 11:53:15 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/hello-world/src/main/scala/Main.scala
+2021.01.11 11:53:16 INFO  no build target: using presentation compiler with only scala-library
+Jan 11, 2021 11:54:20 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 161
+Jan 11, 2021 11:54:20 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 163
+2021.01.11 11:55:53 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/hello-world/src/main/scala/Main.scala
+Jan 11, 2021 11:55:59 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 370
+2021.01.11 11:56:02 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/hello-world/src/main/scala/Main.scala
+2021.01.11 11:56:54 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/hello-world/src/main/scala/Main.scala
+2021.01.11 11:58:08 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/hello-world/src/main/scala/code.scala
+2021.01.11 11:58:08 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/hello-world/src/main/scala/code.scala
+2021.01.11 11:58:20 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/hello-world/src/main/scala/Main.scala
+Jan 11, 2021 11:59:32 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 666
+2021.01.11 12:01:15 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/hello-world/src/main/scala/Main.scala
+2021.01.11 12:01:43 INFO  shutting down Metals
+2021.01.11 12:01:58 INFO  Started: Metals version 0.9.8 in workspace '/mnt/c/Users/Allie/Documents/GitHub/Project0' for client vscode.
+2021.01.11 12:01:58 INFO  time: initialize in 0.33s
+2021.01.11 12:01:58 WARN  Build server is not auto-connectable.
+2021.01.11 12:01:58 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/hello-world/src/main/scala/Main.scala
+2021.01.11 12:02:00 INFO  no build target: using presentation compiler with only scala-library
+2021.01.11 12:02:01 INFO  running '/usr/lib/jvm/java-8-openjdk-amd64/bin/java -Djline.terminal=jline.UnsupportedTerminal -Dsbt.log.noformat=true -Dfile.encoding=UTF-8 -jar /tmp/metals7083436952517388741/sbt-launch.jar -Dbloop.export-jar-classifiers=sources bloopInstall'
+2021.01.11 12:02:02 INFO  sbt bloopInstall exit: 2
+2021.01.11 12:02:01 INFO  time: ran 'sbt bloopInstall' in 0.65s
+2021.01.11 12:02:02 ERROR sbt command failed: /usr/lib/jvm/java-8-openjdk-amd64/bin/java -Djline.terminal=jline.UnsupportedTerminal -Dsbt.log.noformat=true -Dfile.encoding=UTF-8 -jar /tmp/metals7083436952517388741/sbt-launch.jar -Dbloop.export-jar-classifiers=sources bloopInstall
+2021.01.11 12:05:48 INFO  shutting down Metals
+2021.01.11 12:06:47 INFO  Started: Metals version 0.9.8 in workspace '/mnt/c/Users/Allie/Documents/GitHub/Project0' for client vscode.
+2021.01.11 12:06:47 INFO  time: initialize in 0.32s
+2021.01.11 12:06:48 WARN  Build server is not auto-connectable.
+2021.01.11 12:06:48 INFO  skipping build import with status 'Failed'
+2021.01.11 12:07:12 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala
+2021.01.11 12:07:13 INFO  no build target: using presentation compiler with only scala-library
+2021.01.11 12:07:14 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala
+2021.01.11 12:10:04 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala
+2021.01.11 12:14:55 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala
+2021.01.11 12:20:41 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala
+Jan 11, 2021 12:22:23 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 774
+2021.01.11 12:23:16 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala
+2021.01.11 12:23:25 WARN  code navigation does not work for the file '/mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala' because it doesn't belong to a build target.
+2021.01.11 12:23:25 WARN  code navigation does not work for the file '/mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala' because it doesn't belong to a build target.
+2021.01.11 12:23:25 WARN  code navigation does not work for the file '/mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala' because it doesn't belong to a build target.
+2021.01.11 12:23:27 WARN  code navigation does not work for the file '/mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala' because it doesn't belong to a build target.
+2021.01.11 12:23:27 WARN  code navigation does not work for the file '/mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala' because it doesn't belong to a build target.
+2021.01.11 12:23:27 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala
+2021.01.11 12:23:27 WARN  code navigation does not work for the file '/mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala' because it doesn't belong to a build target.
+2021.01.11 12:26:29 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala
+2021.01.11 12:26:34 WARN  code navigation does not work for the file '/mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala' because it doesn't belong to a build target.
+2021.01.11 12:26:34 WARN  code navigation does not work for the file '/mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala' because it doesn't belong to a build target.
+2021.01.11 12:26:39 WARN  code navigation does not work for the file '/mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala' because it doesn't belong to a build target.
+2021.01.11 12:26:39 WARN  code navigation does not work for the file '/mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala' because it doesn't belong to a build target.
+2021.01.11 12:26:40 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala
+2021.01.11 12:26:47 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala
+2021.01.11 12:27:04 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala
+2021.01.11 12:28:42 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala
+2021.01.11 12:30:50 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala
+2021.01.11 12:30:55 WARN  code navigation does not work for the file '/mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala' because it doesn't belong to a build target.
+2021.01.11 12:30:55 WARN  code navigation does not work for the file '/mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala' because it doesn't belong to a build target.
+2021.01.11 12:31:08 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala
+2021.01.11 12:31:23 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala
+Jan 11, 2021 12:32:56 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1891
+2021.01.11 12:33:00 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala
+2021.01.11 12:33:21 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala
+2021.01.11 12:34:43 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala
+Jan 11, 2021 12:35:59 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2065
+2021.01.11 12:36:06 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala
+2021.01.11 12:38:37 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/Main.scala
+2021.01.11 12:38:55 WARN  no build target for: /mnt/c/Users/Allie/Documents/GitHub/Project0/Project_0/src/main/scala/code.scala

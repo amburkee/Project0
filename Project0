@@ -1,0 +1,26 @@
+Project 0 - Text Based Game
+
+Areas - Beach (start), Forest, Shed, Waterfall, Cliff
+
+Inventory - you start with nothing and gain items around the island:
+
+    - Objects - Bolt cutters, Crowbar, Net, Key
+
+Objective - Get off the island. There is raft equipment in the shed. Get into the shed and sail off this island.
+
+Actions - Move, Look, Pickup, Use
+
+
+Where are these objects located?
+  - Bolt cutters: located in the Forest
+  - Crowbar: at the Waterfall
+  - Net: at the Shed
+  - Key: at the Cliff
+
+You need the bolt cutters to get through the first obsticle on the shed door, the chains.
+Then you need the crowbar to peel off the boards on the shed. 
+Then you need the net to get the key to the shed that is dangling off the cliffside. 
+
+You were kidnapped and dumped on a deserted island. 
+You find a note on the side of the Shed saying the only way off the island was by making a raft out of materials inside the Shed.
+
