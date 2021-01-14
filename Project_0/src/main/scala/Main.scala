@@ -10,8 +10,19 @@ object Main extends App {
   println("What will you do?")
 
   newGame.menu()
-  
-  println("You have done it! You opened the Shed and found a lot of materials inside. You take it all to the beach to put it together.")
-  println("Congrats you have escaped the island! Would you like to play again? Y/N")
+
+  println("Would you like to exit completely or play again?")
+  println("Play -> Play again")
+  println("Exit -> Exit game")
+  val reset: Regex = "(\\w+)".r
+  val input = StdIn.readLine()
+  input match {
+      case reset(cmd) if cmd.equalsIgnoreCase("play") => {
+          newGame.menu()
+      }
+      case reset(cmd) if cmd.equalsIgnoreCase("exit") => {
+          println("Goodbye!")
+      }
+  }
 
 }
