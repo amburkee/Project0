@@ -4,6 +4,11 @@ import java.io.FileNotFoundException
 import scala.io.Source
 import scala.collection.mutable.ArrayBuffer
 
+/*
+* Need to make inventory a database instead of an Arraybuffer and the
+* csv file will handle that database interaction???
+* 
+*/
 class Cli{
     var location : String = "Beach"
     var inventory = new ArrayBuffer[String](4)
