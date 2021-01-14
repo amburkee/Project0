@@ -27,10 +27,7 @@ class Cli{
             val input = StdIn.readLine()
 
             input match {
-                case commandArg(cmd, arg) if cmd.equalsIgnoreCase("Look") => {
-                    if (arg == null){
-                        locationError
-                    }
+                case commandArg(cmd) if cmd.equalsIgnoreCase("Look") => {
                     lookArg
                 }
                 case commandArg(cmd, arg) if cmd.equalsIgnoreCase("Move") => {
