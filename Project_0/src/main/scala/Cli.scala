@@ -27,12 +27,11 @@ class Cli{
             val input = StdIn.readLine()
 
             input match {
-                case commandArg(cmd) if cmd.equalsIgnoreCase("Look") => {
+                case commandArg(cmd, arg) if cmd.equalsIgnoreCase("Look") => {
                     lookArg
                 }
                 case commandArg(cmd, arg) if cmd.equalsIgnoreCase("Move") => {
-                    if (arg == location){
-                        
+                    if (arg == location){   
                         locationNotAvailable
                     }
                     if (arg == null){
@@ -76,38 +75,38 @@ class Cli{
             println("An empty beach. Looks like no one has been here before.")
         }
         if (location.equalsIgnoreCase("forest")){
-            if (inventory(0).equalsIgnoreCase("Bolt Cutters")){
-                println("An overgrown forest. There is so much greenery here, you can't even see the sky or ground.")
+            if (inventory.contains("Bolt Cutters")){
+                println("An overgrown forest. There is so much greenery here, you can't see the sky or ground.")
             }else{
-                inventory(0) += "Bolt Cutters"
+                inventory.insert(0, "Bolt Cutters") 
                 println("You've found Bolt Cutters!")
             }
         }
         if (location.equalsIgnoreCase("shed")){
-            if (inventory(1) == "Net"){
+            if (inventory.contains("Net")){
                 println("It is an old shed... I wonder who built it?")
             }else{
-                inventory(1) += "Net"
-                println("You've found a net!")
+                inventory.insert(1, "Net")
+                println("You've found a Net!")
             }
         }
         if (location.equalsIgnoreCase("waterfall")){
-            if (inventory(2) == "Crowbar"){
+            if (inventory.contains("Crowbar")){
                 println("A not so big waterfall but a waterfall none of the less. It is quite peaceful here.")
             }else{
-                inventory(2) += "Crowbar"
+                inventory.insert(2, "Crowbar")
                 println("You've found a Crowbar!")
             }
         }
         if (location.equalsIgnoreCase("cliff")){
-            if (inventory(3) == "Key"){
+            if (inventory.contains("Key")){
                 println("That's a long way down... Better keep my distance.")
-            }else{
-                inventory(3) += "Key"
-                println("You've found a Key!")
             }
-        }else{
-            locationError
+            if(inventory.contains("Net")){
+                println("I bet my net could get that!")
+            }else{
+                println("There is a key dangling off the cliff! It is too far away to reach by hand...")
+            }
         }
     }
 
@@ -123,20 +122,28 @@ class Cli{
     }
 
     def printInv{
-        //prints inventory if you don't know what you have
+        //prints inventory 
         println("Your Inventory:")
         println(inventory.toString())
     }
 
     def shedStatus(y: String){
-        if (shedStat == 4 && y == "Boltcutters"){
+        if (y.equalsIgnoreCase("Net")){
+            inventory.remove(1)
+            inventory.insert(1, "Key")
+            println("You've got a Key!")
+        }
+        if (shedStat == 4 && y.equalsIgnoreCase("Bolt Cutters")){
             shedStat = 3
+            inventory.remove(0)
         }
-        if (shedStat == 3 && y == "Crowbar"){
+        if (shedStat == 3 && y.equalsIgnoreCase("Crowbar")){
             shedStat = 2
+            inventory.remove(2)
         }
-        if (shedStat == 2 && y == "Key"){
+        if (shedStat == 2 && y.equalsIgnoreCase("Key")){
             shedStat = 1
+            inventory.remove(3)
             // exit menu loop, game is won, Shed is unlocked
             continueMenuLoop = false
             println("You have done it! You opened the Shed and found a lot of materials inside. You take it all to the beach to put it together.")

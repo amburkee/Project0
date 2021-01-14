@@ -8,7 +8,8 @@ Inventory - you start with nothing and gain items around the island:
 
 Objective - Get off the island. There is raft equipment in the shed. Get into the shed and sail off this island.
 
-Actions - Move, Look, Pickup, Use
+Actions - Move, Look, Use
+        End game: Exit - Y or N 
 
 
 Where are these objects located?
