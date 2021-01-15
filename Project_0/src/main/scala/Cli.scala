@@ -123,9 +123,9 @@ class Cli{
     }
 
     def moveArg(x: String) {
-        //move to another area
+        //move to another area, can't move to an area you already are in
         //areas: Beach (start), Forest, Shed, Waterfall, Cliff
-        if (location == x){
+        if (location.equalsIgnoreCase(x)){
             locationNotAvailable
         }else{
             location = x
@@ -162,9 +162,6 @@ class Cli{
             println("Congrats you have escaped the island!")
 
             menu()
-
-        }else{
-            shedError
         }
 
     }
