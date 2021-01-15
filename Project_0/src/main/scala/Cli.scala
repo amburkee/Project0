@@ -4,6 +4,7 @@ import java.io.FileNotFoundException
 import scala.io.Source
 import scala.collection.mutable.ArrayBuffer
 
+
 /*
 * Need to make inventory a database instead of an Arraybuffer and the
 * csv file will handle that database interaction???
@@ -13,15 +14,21 @@ class Cli{
     var location : String = "Beach"
     var inventory = new ArrayBuffer[String](4)
     var shedStat = 4
+    
 
     val commandArg: Regex = "(\\w+)\\s*(.*)".r
 
+    // print CSV File, has action words on it...
+  //  val filename = "src/main/scala/gamestage_202101151036.csv"
+  //  for(line <- Source.fromFile(filename).getLines){
+  //      datab = line
+  //  }
+
     def printOptions(): Unit ={
-        // print CSV File, has action words on it...
-        val filename = "src/main/scala/csvFile.csv"
-        for(line <- Source.fromFile(filename).getLines){
-            println(line)
-        }
+        println("Locations: ")
+        println("Beach, Forest, Waterfall, Cliff, Shed")
+        println("Actions: ")
+        println("Look, Move, Use")
     }
 
     var continueMenuLoop = true
@@ -83,7 +90,7 @@ class Cli{
             if (inventory.contains("Bolt Cutters")){
                 println("An overgrown forest. There is so much greenery here, you can't see the sky or ground.")
             }else{
-                inventory.insert(0, "Bolt Cutters") 
+                inventory += "Bolt Cutters" 
                 println("You've found Bolt Cutters!")
             }
         }
@@ -91,7 +98,7 @@ class Cli{
             if (inventory.contains("Net")){
                 println("It is an old shed... I wonder who built it?")
             }else{
-                inventory.insert(1, "Net")
+                inventory += "Net"
                 println("You've found a Net!")
             }
         }
@@ -99,7 +106,7 @@ class Cli{
             if (inventory.contains("Crowbar")){
                 println("A not so big waterfall but a waterfall none of the less. It is quite peaceful here.")
             }else{
-                inventory.insert(2, "Crowbar")
+                inventory += "Crowbar"
                 println("You've found a Crowbar!")
             }
         }
@@ -134,21 +141,21 @@ class Cli{
 
     def shedStatus(y: String){
         if (y.equalsIgnoreCase("Net")){
-            inventory.remove(1)
-            inventory.insert(1, "Key")
+            inventory -= "Net"
+            inventory += "Key"
             println("You've got a Key!")
         }
         if (shedStat == 4 && y.equalsIgnoreCase("Bolt Cutters")){
             shedStat = 3
-            inventory.remove(0)
+            inventory -= "Bolt Cutters"
         }
         if (shedStat == 3 && y.equalsIgnoreCase("Crowbar")){
             shedStat = 2
-            inventory.remove(2)
+            inventory -= "Crowbar"
         }
         if (shedStat == 2 && y.equalsIgnoreCase("Key")){
             shedStat = 1
-            inventory.remove(3)
+            inventory -= "Key"
             // exit menu loop, game is won, Shed is unlocked
             continueMenuLoop = false
             println("You have done it! You opened the Shed and found a lot of materials inside. You take it all to the beach to put it together.")
