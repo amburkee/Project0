@@ -58,7 +58,7 @@ class Cli{
                     if (location.equalsIgnoreCase("shed")){
                         shedStatus(arg)
                     }
-                    if(!location.equalsIgnoreCase("shed")){
+                    else{
                         shedNotFound
                     }
                 }
@@ -147,19 +147,19 @@ class Cli{
     
 
     def shedStatus(y: String){
-        if (shedStat == 4 && y.equalsIgnoreCase("Bolt Cutters")){
+        if (shedStat == 4 && y.equalsIgnoreCase("Bolt Cutters") && inventory.contains("Bolt Cutters")){
             shedStat = 3
             inventory -= "Bolt Cutters"
             println("You remove the chains from the shed.")
         }
         
-        if (shedStat == 3 && y.equalsIgnoreCase("Crowbar")){
+        if (shedStat == 3 && y.equalsIgnoreCase("Crowbar") && inventory.contains("Crowbar")){
             shedStat = 2
             inventory -= "Crowbar"
             println("You remove the wooden planks from the shed.")
         }
         
-        if (shedStat == 2 && y.equalsIgnoreCase("Key")){
+        if (shedStat == 2 && y.equalsIgnoreCase("Key") && inventory.contains("Key")){
             shedStat = 1
             inventory -= "Key"
             // exit menu loop, game is won, Shed is unlocked
@@ -168,8 +168,6 @@ class Cli{
             println("Congrats you have escaped the island!")
 
             menu()
-        }else{
-            shedError
         }
 
     }
