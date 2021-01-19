@@ -58,7 +58,7 @@ class Cli{
                     if (location.equalsIgnoreCase("shed")){
                         shedStatus(arg)
                     }
-                    else{
+                    if (!arg.equalsIgnoreCase("net") && !location.equalsIgnoreCase("shed")){
                         shedNotFound
                     }
                 }
