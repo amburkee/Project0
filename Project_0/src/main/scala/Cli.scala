@@ -11,25 +11,17 @@ import scala.collection.mutable.ArrayBuffer
 * 
 */
 class Cli{
-    var location : String = "Beach"
+    var location : String = "Shed"
     var inventory = new ArrayBuffer[String](4)
     var shedStat = 4
     
-
     val commandArg: Regex = "(\\w+)\\s*(.*)".r
 
-    // print CSV File, has action words on it...
-  //  val filename = "src/main/scala/gamestage_202101151036.csv"
-  //  for(line <- Source.fromFile(filename).getLines){
-  //      datab = line
-  //  }
-
-    def printOptions(): Unit ={
-        println("Locations: ")
-        println("Beach, Forest, Waterfall, Cliff, Shed")
-        println("Actions: ")
-        println("Look, Move, Use")
-    }
+    // print CSV File...
+    // val filename = "src/main/scala/gamestage_202101151036.csv"
+    // for(line <- Source.fromFile(filename).getLines){
+    //     datab = line
+    // }
 
     var continueMenuLoop = true
     def menu(): Unit = {
@@ -53,19 +45,22 @@ class Cli{
                     } 
                 }
                 case commandArg(cmd, arg) if cmd.equalsIgnoreCase("Use") => {
-                    if (arg == "Net"){
-                        if(location == "Cliff"){
+                    if (arg.equalsIgnoreCase("net")){
+                        if(location.equalsIgnoreCase("cliff")){
                             println("You got the key!")
                             //add key to inventory array
+                            inventory -= "Net"
+                            inventory += "Key"
                         }else{
                             shedError
                         }
                     }
-                    if (arg == null){
-                        shedError
-                    }else {
-                        shedStatus(arg) 
-                    }  
+                    if (location.equalsIgnoreCase("shed")){
+                        shedStatus(arg)
+                    }
+                    if(!location.equalsIgnoreCase("shed")){
+                        shedNotFound
+                    }
                 }
                 case commandArg(cmd, arg) if cmd.equalsIgnoreCase("Exit") => {
                     continueMenuLoop = false
@@ -84,7 +79,13 @@ class Cli{
         //if items were found, there is nothing to pickup there 
         //items will be stored in inventory, if item is in inventory, area is empty
         if (location.equalsIgnoreCase("beach")){
-            println("An empty beach. Looks like no one has been here before.")
+            if (inventory.contains("Net")){
+                println("An empty beach. Looks like no one has been here before.")
+            }else{
+                inventory += "Net"
+                println("You've found a Net!")
+            }
+            
         }
         if (location.equalsIgnoreCase("forest")){
             if (inventory.contains("Bolt Cutters")){
@@ -95,11 +96,16 @@ class Cli{
             }
         }
         if (location.equalsIgnoreCase("shed")){
-            if (inventory.contains("Net")){
-                println("It is an old shed... I wonder who built it?")
-            }else{
-                inventory += "Net"
-                println("You've found a Net!")
+            println("It is an old shed... I wonder who built it?")
+            if (shedStat == 4){
+                println("There are chains around it, as well as wooden planks.")
+                println("I wonder if I can find tools around the island to help me get inside?")
+            }
+            if (shedStat == 3){
+                println("There are wooden planks still left. I wonder what I can use to remove them?")
+            }
+            if (shedStat == 2){
+                println("The shed needs a key to unlock it. Where can I find this key?")
             }
         }
         if (location.equalsIgnoreCase("waterfall")){
@@ -113,8 +119,10 @@ class Cli{
         if (location.equalsIgnoreCase("cliff")){
             if (inventory.contains("Key")){
                 println("That's a long way down... Better keep my distance.")
+                menu()
             }
             if(inventory.contains("Net")){
+                println("There is a key dangling off the cliff! It is too far away to reach by hand...")
                 println("I bet my net could get that!")
             }else{
                 println("There is a key dangling off the cliff! It is too far away to reach by hand...")
@@ -127,32 +135,30 @@ class Cli{
         //areas: Beach (start), Forest, Shed, Waterfall, Cliff
         if (location.equalsIgnoreCase(x)){
             locationNotAvailable
-        }else{
+        }
+        if(x.equalsIgnoreCase("beach") || x.equalsIgnoreCase("shed") || x.equalsIgnoreCase("cliff") || x.equalsIgnoreCase("waterfall") || x.equalsIgnoreCase("forest")){
             location = x
             println(s"You move to the $x.")
+        }else{
+            locationError
         }
     }
 
-    def printInv{
-        //prints inventory 
-        println("Your Inventory:")
-        println(inventory.toString())
-    }
+    
 
     def shedStatus(y: String){
-        if (y.equalsIgnoreCase("Net")){
-            inventory -= "Net"
-            inventory += "Key"
-            println("You've got a Key!")
-        }
         if (shedStat == 4 && y.equalsIgnoreCase("Bolt Cutters")){
             shedStat = 3
             inventory -= "Bolt Cutters"
+            println("You remove the chains from the shed.")
         }
+        
         if (shedStat == 3 && y.equalsIgnoreCase("Crowbar")){
             shedStat = 2
             inventory -= "Crowbar"
+            println("You remove the wooden planks from the shed.")
         }
+        
         if (shedStat == 2 && y.equalsIgnoreCase("Key")){
             shedStat = 1
             inventory -= "Key"
@@ -162,10 +168,20 @@ class Cli{
             println("Congrats you have escaped the island!")
 
             menu()
+        }else{
+            shedError
         }
 
     }
 
+    def printInv{
+        //prints inventory 
+        println("Your Inventory:")
+        println(inventory.toString())
+    }
+    def printOptions{
+        options 
+    }
 
 
 
@@ -183,6 +199,10 @@ class Cli{
     }
     def inputError{
         println("Invalid action. Try again.")
+        menu()
+    }
+    def shedNotFound{
+        println("You need to be at the shed to do that.")
         menu()
     }
 }

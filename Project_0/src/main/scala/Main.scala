@@ -4,10 +4,12 @@ import java.io.FileNotFoundException
 import scala.io.Source
 
 
+
 object Main extends App {
   val newGame = new Cli()
 
-  println("You wake up on an empty beach. Looking around there is no one to be found. It looks like no one has ever been here before.")
+  println("You wake up next to a shed. It has chains and wooden planks on it.")
+  println("Looking closer there is a note... It says there are supplies inside to escape this deserted island.")
   println("What will you do?")
 
   newGame.menu()

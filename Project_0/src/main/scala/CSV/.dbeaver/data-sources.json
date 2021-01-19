@@ -1,0 +1,34 @@
+{
+	"folders": {},
+	"connections": {
+		"postgresql_generic-1771bddd983-4aa038cda1166567": {
+			"provider": "generic",
+			"driver": "postgresql_generic",
+			"name": "amburkee 2",
+			"save-password": true,
+			"navigator-show-only-entities": true,
+			"navigator-hide-folders": true,
+			"navigator-hide-virtual": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "5432",
+				"database": "amburkee",
+				"url": "jdbc:postgresql://localhost:5432/amburkee",
+				"type": "dev",
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false
+		}
+	}
+}
