@@ -11,6 +11,7 @@ object Main extends App {
   println("You wake up next to a shed. It has chains and wooden planks on it.")
   println("Looking closer there is a note... It says there are supplies inside to escape this deserted island.")
   println("What will you do?")
+  println("(You can exit at anytime by typing EXIT)")
 
   newGame.menu()
 

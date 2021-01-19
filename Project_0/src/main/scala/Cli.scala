@@ -147,6 +147,12 @@ class Cli{
     
 
     def shedStatus(y: String){
+        if (shedStat == 4 && !y.equalsIgnoreCase("Bolt Cutters")){
+            println("You need to remove the chains first!")
+        }
+        if (shedStat == 3 && !y.equalsIgnoreCase("Crowbar")){
+            println("You need to remove the wooden planks first!")
+        }
         if (shedStat == 4 && y.equalsIgnoreCase("Bolt Cutters") && inventory.contains("Bolt Cutters")){
             shedStat = 3
             inventory -= "Bolt Cutters"
@@ -169,6 +175,7 @@ class Cli{
 
             menu()
         }
+        
 
     }
 
