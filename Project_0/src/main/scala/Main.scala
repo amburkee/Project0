@@ -4,6 +4,7 @@ import java.io.FileNotFoundException
 import scala.io.Source
 import java.sql.DriverManager
 import java.sql.Connection
+import scala.util.Using
 
 
 
@@ -36,15 +37,10 @@ object Main extends App {
             println("Goodbye!")
             endGame = false
 
-            //classOf[org.postgresql.Driver].newInstance()
+            classOf[org.relique.jdbc.csv.CsvDriver].newInstance()
 
-            //var conn: Connection = DriverManager.getConnection("jdbc:relique:csv:/CSV")
-            //val ac = conn.prepareStatement("insert into CsvFile values (1);")
-            //ac.execute()
-            //val resultSet2 = ac.getResultSet()
-            //while (resultSet2.next()){
-            //    println(resultSet2.getString("Times Completed"))
-            //}
+            var conn: Connection = DriverManager.getConnection("jdbc:relique:csv:C:\Users\Allie\Documents\GitHub\Project0\Project_0\src\main\scala\CSV")
+            
         }
         case _ => {
             invalidInput
