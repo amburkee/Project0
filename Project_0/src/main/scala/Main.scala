@@ -36,6 +36,21 @@ object Main extends App {
         case reset(cmd) if cmd.equalsIgnoreCase("exit") => {
             println("Goodbye!")
             endGame = false
+
+            classOf[org.postgresql.Driver].newInstance()
+
+            var conn: Connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/amburkee","amburkee","AshyBoy82")
+
+            println("Times Completed:")
+            val ab = conn.prepareStatement("INSERT INTO completion (times_completed) VALUES (1);")
+            ab.execute()
+            val ac = conn.prepareStatement("SELECT SUM(times_completed) FROM completion;")
+            ac.execute()
+            val resultSet = ac.getResultSet()
+            while (resultSet.next()){
+                println(resultSet.getString("sum"))
+            }
+                    
         }
         case _ => {
             invalidInput
@@ -45,6 +60,9 @@ object Main extends App {
 
   def invalidInput {
       println("Invalid input. Try again.")
+  }
+  def CSVWriter{
+
   }
 
 }
