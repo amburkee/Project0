@@ -2,6 +2,8 @@ import scala.io.StdIn
 import scala.util.matching.Regex 
 import java.io.FileNotFoundException
 import scala.io.Source
+import java.sql.DriverManager
+import java.sql.Connection
 
 
 
@@ -33,6 +35,16 @@ object Main extends App {
         case reset(cmd) if cmd.equalsIgnoreCase("exit") => {
             println("Goodbye!")
             endGame = false
+
+            //classOf[org.postgresql.Driver].newInstance()
+
+            //var conn: Connection = DriverManager.getConnection("jdbc:relique:csv:/CSV")
+            //val ac = conn.prepareStatement("insert into CsvFile values (1);")
+            //ac.execute()
+            //val resultSet2 = ac.getResultSet()
+            //while (resultSet2.next()){
+            //    println(resultSet2.getString("Times Completed"))
+            //}
         }
         case _ => {
             invalidInput
