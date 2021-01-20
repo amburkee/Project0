@@ -36,11 +36,6 @@ object Main extends App {
         case reset(cmd) if cmd.equalsIgnoreCase("exit") => {
             println("Goodbye!")
             endGame = false
-
-            classOf[org.relique.jdbc.csv.CsvDriver].newInstance()
-
-            var conn: Connection = DriverManager.getConnection("jdbc:relique:csv:C:\Users\Allie\Documents\GitHub\Project0\Project_0\src\main\scala\CSV")
-            
         }
         case _ => {
             invalidInput
