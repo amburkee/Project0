@@ -36,21 +36,7 @@ object Main extends App {
         case reset(cmd) if cmd.equalsIgnoreCase("exit") => {
             println("Goodbye!")
             endGame = false
-
-            classOf[org.postgresql.Driver].newInstance()
-
-            var conn: Connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/amburkee","amburkee","AshyBoy82")
-
-            println("Times Completed:")
-            val ab = conn.prepareStatement("INSERT INTO completion (times_completed) VALUES (1);")
-            ab.execute()
-            val ac = conn.prepareStatement("SELECT SUM(times_completed) FROM completion;")
-            ac.execute()
-            val resultSet = ac.getResultSet()
-            while (resultSet.next()){
-                println(resultSet.getString("sum"))
-            }
-                    
+            Rcsv
         }
         case _ => {
             invalidInput
@@ -61,8 +47,26 @@ object Main extends App {
   def invalidInput {
       println("Invalid input. Try again.")
   }
-  def CSVWriter{
+  def Rcsv{
+    classOf[org.postgresql.Driver].newInstance()
+    var con: Connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/amburkee","amburkee","AshyBoy82")
 
+    println("Times game has run:")
+    val bufferedSource = io.Source.fromFile("src/main/scala/csvFile.csv")
+    var line = bufferedSource.getLines
+    for (line <- bufferedSource.getLines) {
+        val cols = line.split(",").map(_.trim)
+        // do whatever you want with the columns here
+        val ab = con.prepareStatement(s"INSERT INTO completion (times_completed) VALUES (${cols(0)});")
+        ab.execute()
+    }
+    
+    val ac = con.prepareStatement("SELECT SUM(times_completed) FROM completion;")
+    ac.execute()
+    val resultSet = ac.getResultSet()
+    while (resultSet.next()){
+        println(resultSet.getString("sum"))
+    }
   }
 
 }
