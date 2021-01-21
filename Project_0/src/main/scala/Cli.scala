@@ -185,7 +185,10 @@ class Cli{
         println(inventory.toString())
     }
     def printOptions{
-        options 
+        println("Actions:") 
+        println("Move, Look, Use") 
+        println("Locations:") 
+        println("Beach, Shed, Waterfall, Cliff, Forest") 
     }
 
 
